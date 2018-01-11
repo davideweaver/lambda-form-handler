@@ -1,5 +1,5 @@
 {
-  "name": "form-handler",
+  "name": "lambda-form-handler",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -28,6 +28,7 @@
     "babel-preset-es2017": "^6.24.1",
     "json-loader": "^0.5.7",
     "lambda-local": "^1.4.5",
+    "terraform": "^1.5.0",
     "webpack": "^3.10.0"
   }
 }
