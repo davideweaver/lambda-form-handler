@@ -1,7 +1,7 @@
 ## lambda-form-handler
 
 ## setup
-1. Copy `config.template.json` to `config.json` and fill out with Twilio info.
+1. Copy `config.template.json` to `config.json` and fill out with Twilio Notify Service info.
 2. Run `npm install`
 3. Change to `deploy` directory and run `terraform init`. Provide S3 details.
 

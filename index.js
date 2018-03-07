@@ -17,17 +17,15 @@ export function handler (event, context, callback) {
     const options = {
         method: 'POST',
         form: {
-            To: config.to,
-            From: config.from,
+            ToBinding: `{"binding_type":"sms", "address":"${config.to}"}`,
             Body: `[${params.source}] ${params.name} (${params.email}) ${params.message}`,
         },
-        json: true,
         headers: {
             "Authorization": "Basic " + new Buffer(config.accountSid + ':' + config.authToken).toString("base64")
         }
     }
 
-    request(`https://api.twilio.com/2010-04-01/Accounts/${config.accountSid}/SMS/Messages`, options, (err, res, body) => {
+    request(`https://notify.twilio.com/v1/Services/${config.notifySid}/Notifications`, options, (err, res, body) => {
         callback(null, {
             statusCode: "200",
             body: `<html><head><meta http-equiv="refresh" content="0; URL='${params.after}'" /></head></html>`,
@@ -36,4 +34,5 @@ export function handler (event, context, callback) {
             },
         });
     });
+    
 };
